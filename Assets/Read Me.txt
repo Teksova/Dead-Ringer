@@ -1,0 +1,14 @@
+heres what needs to be done:
+items need to be reimplemented to match the new 2d thingie
+continue working on assets through gimp
+29 days left
+
+we need:
+animations
+combat
+textures
+level designs
+enemies
+combat
+gui
+
