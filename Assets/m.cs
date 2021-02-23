@@ -9,18 +9,18 @@ public class m : MonoBehaviour
     Rigidbody2D phys;
     Vector2 speedForce;
     Vector2 friction;
-    Vector2 jumpPower;
     int direction;
-    int jump;
-
+    int jumpReady;
+    public int left, right;
+    List<int> record;
     void Start()
     {
         phys = GetComponent<Rigidbody2D>();
-        speedForce = new Vector2(4f, 0);
-        friction = new Vector2(2f, 0);
-        jumpPower = new Vector2(0, 100f);
+        speedForce = new Vector2(7f, 0);
+        friction = new Vector2(4f, 0);
         direction = 1;
-        jump = 2;
+        jumpReady = 1;
+        record = new List<int>();
     }
 
     // Update is called once per frame
@@ -28,16 +28,17 @@ public class m : MonoBehaviour
     {
 
         // Left Right Movement
-        if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x <= 10f)
+        if (Input.GetAxis("Horizontal") > 0 && phys.velocity.x <= 15f)
         {
             phys.AddForce(speedForce, ForceMode2D.Force);
             direction = 1;
+            right += 1;
         }
-
-        if (Input.GetAxis("Horizontal") > 0 && phys.velocity.x >= -10f)
+        if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
             phys.AddForce(-speedForce, ForceMode2D.Force);
             direction = 0;
+            left += 1;
         }
 
         //Friction
@@ -61,22 +62,54 @@ public class m : MonoBehaviour
         }
 
         //Max Speed
-        if (Input.GetAxis("Horizontal") > 0 && phys.velocity.x < -9f)
+        if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x < -15f)
         {
-            phys.velocity = new Vector2(-9f, phys.velocity.y);
+            phys.velocity = new Vector2(-15f, phys.velocity.y);
         }
 
-        if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x > 9f)
+        if (Input.GetAxis("Horizontal") > 0 && phys.velocity.x > 15f)
         {
-            phys.velocity = new Vector2(9f, phys.velocity.y);
+            phys.velocity = new Vector2(15f, phys.velocity.y);
         }
 
-        if (Input.GetAxis("Jump") > 0 && jump == 2)
+        if (Input.GetAxis("Jump") > 0 && jumpReady == 1)
         {
-            phys.AddForce(jumpPower);
+            phys.velocity = new Vector2 (phys.velocity.x, 10f);
+            if (direction == 1)
+            {
+                record.Add(right);
+                right = 0;
+            }
+            else
+            {
+                record.Add(left);
+                left = 0;
+            }
+            record.Add(123456789);
+            jumpReady = 0;
         }
 
-
+        if (Input.GetAxis("Horizontal") == 0)
+        {
+            if (direction == 1)
+            {
+                record.Add(right);
+                right = 0;
+            }
+            else
+            {
+                record.Add(left);
+                left = 0;
+            }
+        }
+        print(record);
+        if (phys.velocity.y == 0)
+        {
+            if(jumpReady < 1)
+            {
+                jumpReady += 1;
+            }
+        }
     }
 }
 
