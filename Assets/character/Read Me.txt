@@ -3,3 +3,7 @@ movement mechanics
 die mechanics
 attack mechanics
 animations
+
+note to add:
+speed changes when the character is not jumping
+
