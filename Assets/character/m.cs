@@ -12,7 +12,7 @@ public class m : MonoBehaviour
     int direction;
     int jumpReady;
     public int left, right;
-    List<int> record;
+    public List<int> record;
     void Start()
     {
         phys = GetComponent<Rigidbody2D>();
@@ -102,6 +102,7 @@ public class m : MonoBehaviour
                 left = 0;
             }
         }
+        
         print(record);
         if (phys.velocity.y == 0)
         {
