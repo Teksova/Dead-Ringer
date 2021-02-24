@@ -1,0 +1,11 @@
+each enemy types need their own folder
+
+enemies that can exist:
+Ghost of MC
+Normal easy enemy type
+Ranged easy enemy type
+
+each enemy needs
+animations
+mechanics
+health

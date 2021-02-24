@@ -1,0 +1,5 @@
+the character needs to have
+movement mechanics
+die mechanics
+attack mechanics
+animations

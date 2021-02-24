@@ -1,0 +1,4 @@
+make a sample scene template that lets you easily create levels
+
+in order to make this complete we need 3 levels at least
+with 2 versions for each: normal and decrepit
