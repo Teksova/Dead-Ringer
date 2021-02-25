@@ -6,4 +6,8 @@ animations
 
 note to add:
 speed changes when the character is not jumping
+animations
+make the character more fat
+pixel?
+
 
