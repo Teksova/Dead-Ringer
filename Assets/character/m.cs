@@ -11,7 +11,7 @@ public class m : MonoBehaviour
     Vector2 friction;
     int direction;
     int jumpReady;
-    public int left, right;
+    int left, right;
     public List<int> record;
     void Start()
     {
