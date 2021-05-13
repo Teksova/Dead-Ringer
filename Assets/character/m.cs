@@ -12,9 +12,7 @@ public class m : MonoBehaviour
     int direction;
     int jumpReady;
     int left, right;
-    bool onlyonce;
-    public List<int> recordTime;
-    public List<string> direcs;
+    public List<int> record;
     void Start()
     {
         phys = GetComponent<Rigidbody2D>();
@@ -22,9 +20,7 @@ public class m : MonoBehaviour
         friction = new Vector2(4f, 0);
         direction = 1;
         jumpReady = 1;
-        recordTime = new List<int>();
-        direcs = new List<string>();
-        onlyonce = false;
+        record = new List<int>();
     }
 
     // Update is called once per frame
@@ -37,14 +33,12 @@ public class m : MonoBehaviour
             phys.AddForce(speedForce, ForceMode2D.Force);
             direction = 1;
             right += 1;
-            onlyonce = true;
         }
         if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
             phys.AddForce(-speedForce, ForceMode2D.Force);
             direction = 0;
             left += 1;
-            onlyonce = true;
         }
 
         //Friction
@@ -83,40 +77,33 @@ public class m : MonoBehaviour
             phys.velocity = new Vector2 (phys.velocity.x, 10f);
             if (direction == 1)
             {
-                recordTime.Add(right);
-                direcs.Add("right");
+                record.Add(right);
                 right = 0;
             }
             else
             {
-                recordTime.Add(left);
-                direcs.Add("left");
+                record.Add(left);
                 left = 0;
             }
-            direcs.Add("jump");
-            recordTime.Add(1);
+            record.Add(123456789);
             jumpReady = 0;
         }
 
-        if (Input.GetAxis("Horizontal") == 0 && onlyonce == true)
+        if (Input.GetAxis("Horizontal") == 0)
         {
             if (direction == 1)
             {
-                recordTime.Add(right);
-                direcs.Add("right");
+                record.Add(right);
                 right = 0;
             }
             else
             {
-                recordTime.Add(left);
-                direcs.Add("left");
+                record.Add(left);
                 left = 0;
             }
-            onlyonce = false;
         }
-
-        print("main" + recordTime.Count);
-        print("direcs" + direcs.Count);
+        
+        print(record);
         if (phys.velocity.y == 0)
         {
             if(jumpReady < 1)
