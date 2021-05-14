@@ -9,11 +9,20 @@ public class m : MonoBehaviour
     Rigidbody2D phys;
     Vector2 speedForce;
     Vector2 friction;
+<<<<<<< HEAD
     Vector2 pos;
     int test;
     int direction, jumpReady, throttle;
     public List<Vector2> record;
     public bool startrecording;
+=======
+    int direction;
+    int jumpReady;
+    int left, right;
+    bool onlyonce;
+    public List<int> recordTime;
+    public List<string> direcs;
+>>>>>>> 3b03ccf755c53d08697131e18eccf84587601e06
     void Start()
     {
         phys = GetComponent<Rigidbody2D>();
@@ -21,9 +30,15 @@ public class m : MonoBehaviour
         friction = new Vector2(4f, 0);
         direction = 1;
         jumpReady = 1;
+<<<<<<< HEAD
         throttle = 0;
         startrecording = true;
         record = new List<Vector2>();
+=======
+        recordTime = new List<int>();
+        direcs = new List<string>();
+        onlyonce = false;
+>>>>>>> 3b03ccf755c53d08697131e18eccf84587601e06
     }
 
     // Update is called once per frame
@@ -35,11 +50,21 @@ public class m : MonoBehaviour
         {
             phys.AddForce(speedForce, ForceMode2D.Force);
             direction = 1;
+<<<<<<< HEAD
+=======
+            right += 1;
+            onlyonce = true;
+>>>>>>> 3b03ccf755c53d08697131e18eccf84587601e06
         }
         if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
             phys.AddForce(-speedForce, ForceMode2D.Force);
             direction = 0;
+<<<<<<< HEAD
+=======
+            left += 1;
+            onlyonce = true;
+>>>>>>> 3b03ccf755c53d08697131e18eccf84587601e06
         }
 
         //Friction
@@ -77,10 +102,49 @@ public class m : MonoBehaviour
         if (Input.GetAxis("Jump") > 0 && jumpReady == 1)
         {
             phys.velocity = new Vector2 (phys.velocity.x, 10f);
+<<<<<<< HEAD
             jumpReady = 0;
         }
         
         //Jump Reset
+=======
+            if (direction == 1)
+            {
+                recordTime.Add(right);
+                direcs.Add("right");
+                right = 0;
+            }
+            else
+            {
+                recordTime.Add(left);
+                direcs.Add("left");
+                left = 0;
+            }
+            direcs.Add("jump");
+            recordTime.Add(1);
+            jumpReady = 0;
+        }
+
+        if (Input.GetAxis("Horizontal") == 0 && onlyonce == true)
+        {
+            if (direction == 1)
+            {
+                recordTime.Add(right);
+                direcs.Add("right");
+                right = 0;
+            }
+            else
+            {
+                recordTime.Add(left);
+                direcs.Add("left");
+                left = 0;
+            }
+            onlyonce = false;
+        }
+
+        print("main" + recordTime.Count);
+        print("direcs" + direcs.Count);
+>>>>>>> 3b03ccf755c53d08697131e18eccf84587601e06
         if (phys.velocity.y == 0)
         {
 
