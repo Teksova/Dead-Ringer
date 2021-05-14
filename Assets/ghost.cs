@@ -11,7 +11,6 @@ public class ghost : MonoBehaviour
     Rigidbody2D self;
     public bool go;
     int count;
-    float time;
     // Start is called before the first frame update
     void Start()
     { 
@@ -19,7 +18,6 @@ public class ghost : MonoBehaviour
         script = man.GetComponent<m>();
         movements = script.record;
         go = false;
-        time = 0.3333f;
     }
 
     // Update is called once per frame
