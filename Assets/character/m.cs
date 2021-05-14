@@ -1,18 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class m : MonoBehaviour
 {
     // Start is called before the first frame update
-
     Rigidbody2D phys;
     Vector2 speedForce;
     Vector2 friction;
-    int direction;
-    int jumpReady;
-    int left, right;
-    public List<int> record;
+    Vector2 pos;
+    int test;
+    int direction, jumpReady, throttle;
+    public List<Vector2> record;
+    public bool startrecording;
     void Start()
     {
         phys = GetComponent<Rigidbody2D>();
@@ -20,7 +21,9 @@ public class m : MonoBehaviour
         friction = new Vector2(4f, 0);
         direction = 1;
         jumpReady = 1;
-        record = new List<int>();
+        throttle = 0;
+        startrecording = true;
+        record = new List<Vector2>();
     }
 
     // Update is called once per frame
@@ -32,13 +35,11 @@ public class m : MonoBehaviour
         {
             phys.AddForce(speedForce, ForceMode2D.Force);
             direction = 1;
-            right += 1;
         }
         if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
             phys.AddForce(-speedForce, ForceMode2D.Force);
             direction = 0;
-            left += 1;
         }
 
         //Friction
@@ -72,45 +73,37 @@ public class m : MonoBehaviour
             phys.velocity = new Vector2(15f, phys.velocity.y);
         }
 
+        //Jump
         if (Input.GetAxis("Jump") > 0 && jumpReady == 1)
         {
             phys.velocity = new Vector2 (phys.velocity.x, 10f);
-            if (direction == 1)
-            {
-                record.Add(right);
-                right = 0;
-            }
-            else
-            {
-                record.Add(left);
-                left = 0;
-            }
-            record.Add(123456789);
             jumpReady = 0;
         }
-
-        if (Input.GetAxis("Horizontal") == 0)
-        {
-            if (direction == 1)
-            {
-                record.Add(right);
-                right = 0;
-            }
-            else
-            {
-                record.Add(left);
-                left = 0;
-            }
-        }
         
-        print(record);
+        //Jump Reset
         if (phys.velocity.y == 0)
         {
+
             if(jumpReady < 1)
             {
                 jumpReady += 1;
             }
+
         }
+
+        if (throttle > 10 && startrecording==true)
+        {
+
+            pos = phys.position;
+            record.Add(pos);
+            throttle = 0;
+
+        }
+        throttle += 1;
+        //print(record.Count);
+        print(startrecording);
+
     }
 }
+
 
