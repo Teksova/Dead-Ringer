@@ -20,13 +20,17 @@ public class Attack : MonoBehaviour
         if (Input.GetAxis("Fire1") == 1 && swinging == false)
         {
             Spear.SetActive(true);
-            Invoke("noswing", 0.25f);
+            Invoke("nospear", 0.25f);
             swinging = true;
         }
     }
-    void noswing()
+    void nospear()
     {
         Spear.SetActive(false);
+        Invoke("noswing", 0.5f);
+    }
+    void noswing()
+    {
         swinging = false;
     }
 }
