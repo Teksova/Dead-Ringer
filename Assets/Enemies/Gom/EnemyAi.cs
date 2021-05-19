@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyAi : MonoBehaviour
 {
 
-    RigidBody2D
+    
     // Start is called before the first frame update
     void Start()
     {
