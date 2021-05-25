@@ -293,9 +293,8 @@ GameObject:
   m_Component:
   - component: {fileID: 390054365}
   - component: {fileID: 390054366}
-  - component: {fileID: 390054368}
-  - component: {fileID: 390054367}
   - component: {fileID: 390054369}
+  - component: {fileID: 390054367}
   m_Layer: 0
   m_Name: sword
   m_TagString: Untagged
@@ -311,7 +310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390054364}
   m_LocalRotation: {x: -0, y: -0, z: -0.4301594, w: 0.902753}
-  m_LocalPosition: {x: -1.1470788, y: 1.9270921, z: 0}
+  m_LocalPosition: {x: -2.65, y: -0.34, z: 0}
   m_LocalScale: {x: 1.0741705, y: 1.0741705, z: 1.0741705}
   m_Children: []
   m_Father: {fileID: 958363945}
@@ -356,40 +355,19 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de2d36bef947e844cb5376a02aad69d1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a4dde4ad044b41b44a478f2c5f1077f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 2}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &390054367
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 390054364}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!70 &390054368
-CapsuleCollider2D:
+--- !u!68 &390054367
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -398,12 +376,17 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0362193, y: -0.17271072}
-  m_Size: {x: 4.9276257, y: 1.2812359}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0.5
+  m_Points:
+  - {x: -0.91179186, y: 3.836501}
+  - {x: -3.2158196, y: 2.870922}
+  - {x: -1.0943128, y: -0.08816886}
+  - {x: 2.3845038, y: -1.1891325}
+  - {x: 2.5581107, y: 1.0568197}
 --- !u!114 &390054369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2913,7 +2896,7 @@ SpriteRenderer:
   m_Size: {x: 4.74, y: 4.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2049294464

@@ -69,7 +69,6 @@ public class skeleton : MonoBehaviour
         swinging = true;
         self.velocity = new Vector2(0f, 0f);
         yield return new WaitForSeconds(.5f);
-        sword.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 2f;
         if(transform.rotation.y == 0)
         {
             self.velocity = new Vector2(10f, 0f);
@@ -79,7 +78,6 @@ public class skeleton : MonoBehaviour
             self.velocity = new Vector2(-10f, 0f);
         }
         yield return new WaitForSeconds(.25f);
-
         if (transform.rotation.y == 0)
         {
             self.velocity = new Vector2(-10f, 0f);
