@@ -87,7 +87,7 @@ public class goblin : MonoBehaviour
         {
             modifier = 2;
         }
-        rock.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle) * 20, Mathf.Sin(angle) * 12 + modifier);
+        rock.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle) * 20, Mathf.Sin(angle) * 20 + modifier);
         yield return new WaitForSeconds(1f);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = throwA;
         rock.transform.position = rockpos1;
