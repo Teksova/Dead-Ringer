@@ -13,6 +13,7 @@ public class skeleton : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        countmax = 150;
         direc = 1;
         count = 0;
         swinging = false;
@@ -25,10 +26,6 @@ public class skeleton : MonoBehaviour
     { 
         if(swinging == false)
         {
-            if (count == 0)
-            {
-                countmax = Random.Range(50, 300);
-            }
             count += 1;
             if (count > countmax && direc == 1)
             {
@@ -46,7 +43,7 @@ public class skeleton : MonoBehaviour
                 direc = 0;
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
-            if (count > 300 && direc == 0)
+            if (count > 500 && direc == 0)
             {
                 self.velocity = new Vector2(0f, 0f);
                 count = 0;
@@ -67,28 +64,40 @@ public class skeleton : MonoBehaviour
     {
         print("kill move");
         swinging = true;
-        self.velocity = new Vector2(0f, 0f);
-        yield return new WaitForSeconds(.5f);
-        sword.gameObject.GetComponent<Rigidbody2D>().angularVelocity = 2f;
         if(transform.rotation.y == 0)
         {
-            self.velocity = new Vector2(10f, 0f);
+            self.velocity = new Vector2(5f, 0f);
         }
         if(transform.rotation.y == 180)
         {
-            self.velocity = new Vector2(-10f, 0f);
+            self.velocity = new Vector2(-5f, 0f);
         }
-        yield return new WaitForSeconds(.25f);
-
+        yield return new WaitForSeconds(.1f);
+        sword.gameObject.SetActive(true);
         if (transform.rotation.y == 0)
         {
-            self.velocity = new Vector2(-10f, 0f);
+            self.velocity = new Vector2(-15f, 0f);
         }
         if (transform.rotation.y == 180)
         {
-            self.velocity = new Vector2(10f, 0f);
+            self.velocity = new Vector2(15f, 0f);
         }
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
+        sword.gameObject.SetActive(false);
+        self.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(.25f);
+        sword.gameObject.SetActive(true);
+        if (transform.rotation.y == 0)
+        {
+            self.velocity = new Vector2(-15f, 0f);
+        }
+        if (transform.rotation.y == 180)
+        {
+            self.velocity = new Vector2(15f, 0f);
+        }
+        yield return new WaitForSeconds(.25f);
+        sword.SetActive(false);
+        self.velocity = new Vector2(0f, 0f);
         swinging = false;
     }
 
