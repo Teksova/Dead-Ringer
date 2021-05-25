@@ -25,9 +25,4 @@ public class skeletonsword : MonoBehaviour
         }
     }
 
-    public void spinornot()
-    {
-
-    }
-
 }
