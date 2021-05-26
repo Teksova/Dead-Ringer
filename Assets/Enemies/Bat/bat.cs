@@ -11,7 +11,7 @@ public class bat : MonoBehaviour
     Vector3 placeholder;
     Rigidbody2D self;
     int count, modifier;
-    bool dashstart, dashing, idle, spritechange;
+    bool dashstart, dashing, idle;
     int sprite;
     float angle;
     // Start is called before the first frame update
@@ -22,7 +22,6 @@ public class bat : MonoBehaviour
         dashing = false;
         dashstart = false;
         idle = true;
-        spritechange = true;
         modifier = 0;
         sprite = 1;
     }

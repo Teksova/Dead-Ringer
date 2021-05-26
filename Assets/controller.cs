@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rock : MonoBehaviour
+public class controller : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -14,15 +14,5 @@ public class rock : MonoBehaviour
     void Update()
     {
         
-    }
-
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.tag == "Player")
-        {
-            //decrease global variable by 1
-        }
-        gameObject.SetActive(false);
-
     }
 }
