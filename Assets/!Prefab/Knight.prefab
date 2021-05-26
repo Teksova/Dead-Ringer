@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 1088699029277406903}
   - component: {fileID: 1088699029277406896}
   - component: {fileID: 2892255555428553787}
+  - component: {fileID: -6358627252479935618}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Player
@@ -288,5 +289,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ac68e14848d94925a210548ae41b271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scorenumber: 0
+  scoreUpNumber: 123
+--- !u!114 &-6358627252479935618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088699029277406902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806544aeb6f884df68a0d35df3708354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
