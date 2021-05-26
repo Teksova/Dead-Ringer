@@ -6,6 +6,7 @@ using UnityEngine;
 public class m : MonoBehaviour
 {
     // Start is called before the first frame update
+    GameObject god;
     Rigidbody2D phys;
     Vector2 speedForce;
     Vector2 friction;
@@ -15,9 +16,10 @@ public class m : MonoBehaviour
     public List<Vector2> record;
     public bool startrecording;
     public bool alive;
-
+    bool death;
     void Start()
     {
+        god = GameObject.FindGameObjectWithTag("god");
         phys = GetComponent<Rigidbody2D>();
         speedForce = new Vector2(7f, 0);
         friction = new Vector2(7f, 0);
@@ -36,18 +38,27 @@ public class m : MonoBehaviour
         {
             this.gameObject.SetActive(false);
         }
+
         // Left Right Movement
         if (Input.GetAxis("Horizontal") > 0 && phys.velocity.x <= 15f)
         {
             //phys.AddForce(speedForce, ForceMode2D.Force);
             phys.velocity = new Vector2(10f, phys.velocity.y);
             direction = 1;
+            if(Input.GetAxis("Fire3") > 0)
+            {
+                phys.velocity = new Vector2(20f, phys.velocity.y);
+            }
         }
         if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
             //phys.AddForce(-speedForce, ForceMode2D.Force);
             phys.velocity = new Vector2(-10f, phys.velocity.y);
             direction = 0;
+            if (Input.GetAxis("Fire3") > 0)
+            {
+                phys.velocity = new Vector2(-20f, phys.velocity.y);
+            }
         }
 
         if (Input.GetAxis("Horizontal") == 0 && phys.velocity.x > 0)
@@ -105,7 +116,7 @@ public class m : MonoBehaviour
         //Jump
         if (Input.GetAxis("Jump") > 0 && jumpReady == 1)
         {
-            phys.velocity = new Vector2 (phys.velocity.x, 10f);
+            phys.velocity = new Vector2 (phys.velocity.x, 20f);
             jumpReady = 0;
         }
         
