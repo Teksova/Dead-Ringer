@@ -7,6 +7,9 @@ TagManager:
   - weapon
   - rock
   - goblin
+  - god
+  - canvas
+  - killbox
   layers:
   - Default
   - TransparentFX

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7657908697255626455}
   - component: {fileID: 7657908697255626449}
   - component: {fileID: 7657908697255626448}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: killbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 7657908698836282175}
   - component: {fileID: 7657908698836282168}
   - component: {fileID: 7657908698836282169}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rock
   m_TagString: rock
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   - component: {fileID: 7657908698890492670}
   - component: {fileID: 7657908698890492669}
   - component: {fileID: 7657908698890492671}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: goblino
   m_TagString: goblin
   m_Icon: {fileID: 0}

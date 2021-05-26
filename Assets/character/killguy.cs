@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class killguy : MonoBehaviour
 {
-
+    GameObject god;
+    controller controller;
     // Start is called before the first frame update
     void Start()
     {
+        god = GameObject.FindGameObjectWithTag("god");
+        controller = god.GetComponent<controller>();
     }
 
     // Update is called once per frame
@@ -20,7 +23,7 @@ public class killguy : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.gameObject.SetActive(false);
+            controller.health -= 1;
         }
         if (collision.tag == "weapon")
         {

@@ -18,11 +18,7 @@ public class rock : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
-        {
-            //decrease global variable by 1
-        }
-        //gameObject.SetActive(false);
-
+        print(collision.name);
+        gameObject.SetActive(false);
     }
 }
