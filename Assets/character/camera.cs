@@ -34,6 +34,21 @@ public class camera : MonoBehaviour
                 manPos.x = manPos.x + 2;
                 transform.position = manPos;
             }
+        if (transform.position.y <= manPos.y - 2)
+        {
+            manPos.z = manPos.z - 20;
+            manPos.x = transform.position.x;
+            manPos.y = manPos.y - 2;
+            transform.position = manPos;
+        }
+        if (transform.position.y >= manPos.y + 2)
+        {
+            manPos.z = manPos.z - 20;
+            manPos.x = transform.position.x;
+            manPos.y = manPos.y + 2;
+            transform.position = manPos;
+        }
+
 
 
     }
