@@ -85,6 +85,7 @@ public class bat : MonoBehaviour
     }
     IEnumerator dashtest()
     {
+        placeholder = transform.position;
         dashstart = true;
         self.velocity = new Vector2(0, 7f);
         yield return new WaitForSeconds(0.25f);
@@ -100,9 +101,10 @@ public class bat : MonoBehaviour
         }
         self.velocity = new Vector2(Mathf.Cos(angle) * 12, Mathf.Sin(angle) * 12 + modifier);
         yield return new WaitForSeconds(0.5f);
-        self.velocity = new Vector2(0, 0);
+        self.velocity = new Vector2(2f, 0);
         idle = true;
         yield return new WaitForSeconds(1f);
+        transform.position = new Vector3(transform.position.x, placeholder.y, transform.position.z);
         dashstart = false;
     }
 }
