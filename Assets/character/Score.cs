@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreCounter : MonoBehaviour
+public class Score : MonoBehaviour
 {
-    public GameObject Character;
-    
+    public int scorenumber = 0;
+    public int scoreUpNumber = 123;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,5 +16,9 @@ public class ScoreCounter : MonoBehaviour
     void Update()
     {
         
+    }
+    void addToScore()
+    {
+        scorenumber += scoreUpNumber;
     }
 }

@@ -141,8 +141,9 @@ GameObject:
   - component: {fileID: 1088699029277406900}
   - component: {fileID: 1088699029277406903}
   - component: {fileID: 1088699029277406896}
+  - component: {fileID: 2892255555428553787}
   m_Layer: 0
-  m_Name: knight 1
+  m_Name: Knight
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -275,5 +276,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ade87a9a940082444a141f8f8d04ef25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2892255555428553787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1088699029277406902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac68e14848d94925a210548ae41b271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
