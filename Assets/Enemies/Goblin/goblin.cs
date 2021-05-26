@@ -63,7 +63,6 @@ public class goblin : MonoBehaviour
     {
         print("throwrock");
         rock.gameObject.SetActive(true);
-        rock.transform.GetChild(0).gameObject.SetActive(true);
         rockpos1 = rock.transform.position;
         self.velocity = new Vector2(0, 0);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = throwB;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class controller : MonoBehaviour
 {
+    public int maxH, health;
     // Start is called before the first frame update
     void Start()
     {
