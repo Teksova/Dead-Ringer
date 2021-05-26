@@ -481,6 +481,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8065174770506281047, guid: 6a03fc4f79f224955af7af806d5b9e72,
+        type: 3}
+      propertyPath: m_TagString
+      value: canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a03fc4f79f224955af7af806d5b9e72, type: 3}
 --- !u!1 &502123865
@@ -1035,6 +1040,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &894944372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 894944373}
+  - component: {fileID: 894944374}
+  - component: {fileID: 894944375}
+  m_Layer: 9
+  m_Name: killbox (1)
+  m_TagString: killbox
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &894944373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894944372}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.02, y: -0.03, z: 0}
+  m_LocalScale: {x: 10.505619, y: 10.505619, z: 10.505619}
+  m_Children: []
+  m_Father: {fileID: 1314312182}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &894944374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894944372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c148b113406bd754a8c77e998f8974e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &894944375
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 894944372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.02941513, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.37154078
 --- !u!1 &1167288085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1197,6 +1262,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1314312182 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7657908698836282174, guid: 2e5f6ad8505a54776bdfe9449d4ea9b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7657908697925897740}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1316684427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1728,6 +1799,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 533632637120105135, guid: c97a4dd2a61b54777b644a17815224dc,
+        type: 3}
+      propertyPath: m_TagString
+      value: killbox
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97a4dd2a61b54777b644a17815224dc, type: 3}
 --- !u!1001 &1088699029680644174
@@ -1954,6 +2030,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5644744952952363698, guid: f125f59fba11c4230919c39d2c8e039a,
+        type: 3}
+      propertyPath: m_TagString
+      value: killbox
+      objectReference: {fileID: 0}
     - target: {fileID: 5644744953846821573, guid: f125f59fba11c4230919c39d2c8e039a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2023,10 +2104,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7657908697255626454, guid: 2e5f6ad8505a54776bdfe9449d4ea9b3,
+        type: 3}
+      propertyPath: m_TagString
+      value: killbox
+      objectReference: {fileID: 0}
     - target: {fileID: 7657908698890492642, guid: 2e5f6ad8505a54776bdfe9449d4ea9b3,
         type: 3}
       propertyPath: m_Name
       value: goblino
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657908698890492642, guid: 2e5f6ad8505a54776bdfe9449d4ea9b3,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7657908698890492668, guid: 2e5f6ad8505a54776bdfe9449d4ea9b3,
         type: 3}
@@ -2100,6 +2191,11 @@ PrefabInstance:
     - target: {fileID: 7766604834256897044, guid: d628cf47a0a404dd0b0bd52d6c569576,
         type: 3}
       propertyPath: m_Name
+      value: god
+      objectReference: {fileID: 0}
+    - target: {fileID: 7766604834256897044, guid: d628cf47a0a404dd0b0bd52d6c569576,
+        type: 3}
+      propertyPath: m_TagString
       value: god
       objectReference: {fileID: 0}
     - target: {fileID: 7766604834256897045, guid: d628cf47a0a404dd0b0bd52d6c569576,
