@@ -22,7 +22,7 @@ public class rock : MonoBehaviour
         {
             //decrease global variable by 1
         }
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
 
     }
 }

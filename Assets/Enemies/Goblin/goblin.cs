@@ -61,6 +61,7 @@ public class goblin : MonoBehaviour
     
     IEnumerator throwrock()
     {
+        print("throwrock");
         rock.gameObject.SetActive(true);
         rock.transform.GetChild(0).gameObject.SetActive(true);
         rockpos1 = rock.transform.position;
