@@ -341,4 +341,4 @@ MonoBehaviour:
   throwA: {fileID: 21300000, guid: cb6e850d86beaed409eff1b37551556e, type: 3}
   throwB: {fileID: 21300000, guid: ed638e95fa0fb4246902bcbbb211f392, type: 3}
   throwC: {fileID: 21300000, guid: 26c5b4bc619000249bdd6334a4d3a171, type: 3}
-  player: {fileID: 0}
+  player: {fileID: 1088699029277406902, guid: 3d2de7fee0bbe409791bf0fe3d4ef43f, type: 3}
