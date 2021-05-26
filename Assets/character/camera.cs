@@ -18,35 +18,24 @@ public class camera : MonoBehaviour
     void Update()
     {
         manPos = man.transform.position;
+        
+        if (transform.position.x <= manPos.x - 2)
+        {
+            transform.position = new Vector3(manPos.x - 2, manPos.y, transform.position.z);
+        }
+        if (transform.position.x >= manPos.x + 2)
+        {
 
-
-            if (transform.position.x <= manPos.x - 2)
-            {
-                manPos.z = manPos.z - 20;
-                manPos.y = transform.position.y;
-                manPos.x = manPos.x - 2;
-                transform.position = manPos;
-            }
-            if (transform.position.x >= manPos.x + 2)
-            {
-                manPos.z = manPos.z - 20;
-                manPos.y = transform.position.y;
-                manPos.x = manPos.x + 2;
-                transform.position = manPos;
-            }
+            transform.position = new Vector3(manPos.x + 2, manPos.y, transform.position.z);
+        }
+        
         if (transform.position.y <= manPos.y - 2)
         {
-            manPos.z = manPos.z - 20;
-            manPos.x = transform.position.x;
-            manPos.y = manPos.y - 2;
-            transform.position = manPos;
+            transform.position = new Vector3(manPos.x, manPos.y - 2, transform.position.z);
         }
         if (transform.position.y >= manPos.y + 2)
         {
-            manPos.z = manPos.z - 20;
-            manPos.x = transform.position.x;
-            manPos.y = manPos.y + 2;
-            transform.position = manPos;
+            transform.position = new Vector3(manPos.x, manPos.y + 2, transform.position.z);
         }
 
 

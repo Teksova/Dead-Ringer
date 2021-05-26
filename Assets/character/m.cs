@@ -7,24 +7,26 @@ public class m : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject god;
+    Attack attack;
     Rigidbody2D phys;
     Vector2 speedForce;
     Vector2 friction;
     Vector2 pos;
     int test;
-    int direction, jumpReady, throttle;
+    int direction, throttle;
+    public bool jumpready;
     public List<Vector2> record;
     public bool startrecording;
     public bool alive;
-    bool death;
     void Start()
     {
+        attack = gameObject.GetComponent<Attack>();
         god = GameObject.FindGameObjectWithTag("god");
         phys = GetComponent<Rigidbody2D>();
         speedForce = new Vector2(7f, 0);
         friction = new Vector2(7f, 0);
         direction = 1;
-        jumpReady = 1;
+        jumpready = true;
         throttle = 0;
         startrecording = true;
         alive = true;
@@ -49,6 +51,10 @@ public class m : MonoBehaviour
             {
                 phys.velocity = new Vector2(20f, phys.velocity.y);
             }
+            if(attack.attacking == false)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
         }
         if (Input.GetAxis("Horizontal") < 0 && phys.velocity.x >= -15f)
         {
@@ -58,6 +64,10 @@ public class m : MonoBehaviour
             if (Input.GetAxis("Fire3") > 0)
             {
                 phys.velocity = new Vector2(-20f, phys.velocity.y);
+            }
+            if (attack.attacking == false)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
         }
 
@@ -114,22 +124,13 @@ public class m : MonoBehaviour
         }
 
         //Jump
-        if (Input.GetAxis("Jump") > 0 && jumpReady == 1)
+        if (Input.GetAxis("Jump") > 0 && jumpready == true)
         {
             phys.velocity = new Vector2 (phys.velocity.x, 20f);
-            jumpReady = 0;
+            jumpready = false;
         }
         
         //Jump Reset
-        if (phys.velocity.y == 0)
-        {
-
-            if(jumpReady < 1)
-            {
-                jumpReady += 1;
-            }
-
-        }
 
         if (throttle > 10 && startrecording==true)
         {

@@ -257,6 +257,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 533632636408012287, guid: c97a4dd2a61b54777b644a17815224dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 533632637120105135, guid: c97a4dd2a61b54777b644a17815224dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97a4dd2a61b54777b644a17815224dc, type: 3}
 --- !u!1001 &543843265
@@ -388,6 +398,11 @@ PrefabInstance:
     - target: {fileID: 1088699029277406899, guid: 3d2de7fee0bbe409791bf0fe3d4ef43f,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088699029277406900, guid: 3d2de7fee0bbe409791bf0fe3d4ef43f,
+        type: 3}
+      propertyPath: m_AngularDrag
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1088699029277406902, guid: 3d2de7fee0bbe409791bf0fe3d4ef43f,
@@ -718,6 +733,11 @@ PrefabInstance:
     - target: {fileID: 1755384362018212073, guid: 1855096c29b0e4540836634aae1bb714,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1755384362018212074, guid: 1855096c29b0e4540836634aae1bb714,
+        type: 3}
+      propertyPath: m_AllowDynamicResolution
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1755384362018212076, guid: 1855096c29b0e4540836634aae1bb714,
@@ -50594,6 +50614,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 533632636408012287, guid: c97a4dd2a61b54777b644a17815224dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 533632637120105135, guid: c97a4dd2a61b54777b644a17815224dc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c97a4dd2a61b54777b644a17815224dc, type: 3}

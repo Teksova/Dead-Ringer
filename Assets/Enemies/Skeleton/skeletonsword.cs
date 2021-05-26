@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class skeletonsword : MonoBehaviour
 {
-
+    GameObject god;
+    controller controller;
     // Start is called before the first frame update
     void Start()
     {
-
+        god = GameObject.FindGameObjectWithTag("god");
+        controller = god.GetComponent<controller>();
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class skeletonsword : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            collision.gameObject.SetActive(false);
+            controller.health -= 1;
         }
     }
 

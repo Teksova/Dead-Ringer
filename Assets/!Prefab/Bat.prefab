@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 533632636408012286}
   - component: {fileID: 533632636408012282}
   - component: {fileID: 533632636408012283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 533632637120105134}
   - component: {fileID: 533632637120105133}
   - component: {fileID: 533632637120105132}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: killbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}

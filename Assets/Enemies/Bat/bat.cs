@@ -7,8 +7,8 @@ public class bat : MonoBehaviour
 {
     public Sprite batA;
     public Sprite batB;
-    public GameObject player;
-    Vector3 placeholder;
+    GameObject player;
+    Vector3 batplaceholder;
     Rigidbody2D self;
     int count, modifier;
     bool dashstart, dashing, idle;
@@ -17,6 +17,7 @@ public class bat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         self = GetComponent<Rigidbody2D>();
         count = 0;
         dashing = false;
@@ -29,6 +30,7 @@ public class bat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print(player.transform.position.x);
         if (count > 30 && idle == true)
         {
             self.velocity = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
@@ -84,7 +86,7 @@ public class bat : MonoBehaviour
     }
     IEnumerator dashtest()
     {
-        placeholder = transform.position;
+        batplaceholder = transform.position;
         dashstart = true;
         self.velocity = new Vector2(0, 7f);
         yield return new WaitForSeconds(0.25f);
@@ -98,12 +100,15 @@ public class bat : MonoBehaviour
         {
             modifier = 2;
         }
+
         self.velocity = new Vector2(Mathf.Cos(angle) * 12, Mathf.Sin(angle) * 12 + modifier);
+        
+        print(Mathf.Cos(angle));
         yield return new WaitForSeconds(0.5f);
         self.velocity = new Vector2(2f, 0);
         idle = true;
         yield return new WaitForSeconds(1f);
-        transform.position = new Vector3(transform.position.x, placeholder.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, batplaceholder.y, transform.position.z);
         dashstart = false;
     }
 }

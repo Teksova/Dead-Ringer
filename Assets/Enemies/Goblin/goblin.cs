@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class goblin : MonoBehaviour
 {
-    Rigidbody2D self;
+    Rigidbody2D self, rockphys;
     GameObject rock;
     Vector3 rockpos1, rockpos2, rockpos3;
     public Sprite throwA, throwB, throwC;
-    public GameObject player;
+    GameObject player;
     int direction, count;
     int modifier;
     float angle;
@@ -16,8 +16,9 @@ public class goblin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
         rock = transform.GetChild(1).gameObject;
+        rockphys = rock.GetComponent<Rigidbody2D>();
         self = GetComponent<Rigidbody2D>();
         direction = 1;
         count = 0;
@@ -87,7 +88,8 @@ public class goblin : MonoBehaviour
         {
             modifier = 2;
         }
-        rock.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle) * 20, Mathf.Sin(angle) * 20 + modifier);
+        rockphys.velocity = new Vector2(Mathf.Cos(angle) * 20, Mathf.Sin(angle) * 20 + modifier);
+        rockphys.AddForce(new Vector2(0, -5f));
         yield return new WaitForSeconds(1f);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = throwA;
         rock.transform.position = rockpos1;
