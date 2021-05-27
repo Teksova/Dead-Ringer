@@ -25,9 +25,10 @@ public class killguy : MonoBehaviour
         {
             controller.health -= 1;
         }
-        if (collision.tag == "weapon")
+        if (collision.tag == "weapon" && this.gameObject.tag != "rock")
         {
             print("I dies");
+            controller.score += 1;
             transform.parent.gameObject.SetActive(false);
             this.gameObject.SetActive(false);
         }

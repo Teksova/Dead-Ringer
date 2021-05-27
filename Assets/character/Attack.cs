@@ -38,10 +38,24 @@ public class Attack : MonoBehaviour
         swinging = true;
         attacking = true;
         spearEdge.enabled = false;
-        Spear.transform.Translate(-1f, -1f, 0);
+        if (transform.rotation == Quaternion.Euler(0, 0, 0))
+        {
+            Spear.transform.Translate(-1f, -1f, 0);
+        }
+        if (transform.rotation == Quaternion.Euler(0, 180, 0))
+        {
+            Spear.transform.Translate(1f, 1f, 0);
+        }
         yield return new WaitForSeconds(.25f);
         spearEdge.enabled = true;
-        Spear.transform.Translate(1f, 1f, 0);
+        if (transform.rotation == Quaternion.Euler(0, 0, 0))
+        {
+            Spear.transform.Translate(1f,1f, 0);
+        }
+        if (transform.rotation == Quaternion.Euler(0, 180, 0))
+        {
+            Spear.transform.Translate(1f, 1f, 0);
+        }
         yield return new WaitForSeconds(.5f);
         spear.transform.position = new Vector3(self.transform.position.x + .89f, self.transform.position.y +.08f, Spear.transform.position.z);
         Spear.SetActive(false);

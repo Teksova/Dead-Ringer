@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5644744952952363699}
   - component: {fileID: 5644744952952363661}
   - component: {fileID: 5644744952952363660}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: killbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,8 @@ GameObject:
   - component: {fileID: 5644744953846821575}
   - component: {fileID: 5644744953846821574}
   - component: {fileID: 5644744953846821568}
-  m_Layer: 0
+  - component: {fileID: 2275501717345210949}
+  m_Layer: 11
   m_Name: skeletonman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,6 +104,7 @@ Transform:
   m_Children:
   - {fileID: 5644744954213780017}
   - {fileID: 5644744952952363699}
+  - {fileID: 2164593278194690774}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -171,12 +173,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &5644744953846821574
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -205,6 +207,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50edd23f230125d4aa4faee962095ab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2275501717345210949
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5644744953846821579}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.7300999, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 7.57, y: 8.31}
+    newSize: {x: 7.57, y: 8.31}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 4.109801, y: 8.31}
+  m_EdgeRadius: 0
 --- !u!1 &5644744954213780016
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +245,7 @@ GameObject:
   - component: {fileID: 5644744954213780018}
   - component: {fileID: 5644744954213779981}
   - component: {fileID: 5644744954213780019}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,3 +349,63 @@ EdgeCollider2D:
   - {x: 0.059356153, y: 1.2372477}
   - {x: -3.2189703, y: 0.28269076}
   - {x: -2.080073, y: -1.4536798}
+--- !u!1 &7884602754325576913
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2164593278194690774}
+  - component: {fileID: 1867684009323087093}
+  - component: {fileID: 6309565123820027804}
+  m_Layer: 12
+  m_Name: toes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2164593278194690774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884602754325576913}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.05, y: -5.37, z: -2.1899796}
+  m_LocalScale: {x: 2.2941575, y: 2.2941575, z: 2.2941575}
+  m_Children: []
+  m_Father: {fileID: 5644744953846821573}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1867684009323087093
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884602754325576913}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &6309565123820027804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7884602754325576913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e07529791dbc4438c83561c52a748b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

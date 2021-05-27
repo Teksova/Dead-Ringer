@@ -126,7 +126,7 @@ public class m : MonoBehaviour
         //Jump
         if (Input.GetAxis("Jump") > 0 && jumpready == true)
         {
-            phys.velocity = new Vector2 (phys.velocity.x, 20f);
+            phys.velocity = new Vector2 (phys.velocity.x, 15f);
             jumpready = false;
         }
         

@@ -10,8 +10,8 @@ public class bat : MonoBehaviour
     GameObject player;
     Vector3 batplaceholder;
     Rigidbody2D self;
-    int count, modifier;
-    bool dashstart, dashing, idle;
+    int modifier;
+    bool dashstart, dashing, idle, idletime;
     int sprite;
     float angle;
     // Start is called before the first frame update
@@ -19,10 +19,10 @@ public class bat : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         self = GetComponent<Rigidbody2D>();
-        count = 0;
         dashing = false;
         dashstart = false;
         idle = true;
+        idletime = true;
         modifier = 0;
         sprite = 1;
     }
@@ -31,20 +31,9 @@ public class bat : MonoBehaviour
     void Update()
     {
         //print(player.transform.position.x);
-        if (count > 30 && idle == true)
+        if (idletime && idle == true)
         {
-            self.velocity = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
-            count = 0;
-            spriteflip();
-            if (sprite == 1)
-            {
-                 this.gameObject.GetComponent<SpriteRenderer>().sprite = batA;
-            }
-
-            if (sprite == 2)
-            {
-                 this.gameObject.GetComponent<SpriteRenderer>().sprite = batB;
-            }
+            StartCoroutine(idleing());
         }
         if (dashing == true)
         {
@@ -53,7 +42,6 @@ public class bat : MonoBehaviour
             dashing = false;
             StartCoroutine(dashtest());
         }
-        count += 1;
     }
 
     void OnTriggerStay2D(Collider2D otherObject)
@@ -72,7 +60,6 @@ public class bat : MonoBehaviour
         if (otherObject.tag == "Player")
         {
             dashing = false;
-            count = 0;
         }
     }
 
@@ -84,6 +71,7 @@ public class bat : MonoBehaviour
             sprite = 1;
         }
     }
+
     IEnumerator dashtest()
     {
         batplaceholder = transform.position;
@@ -110,5 +98,23 @@ public class bat : MonoBehaviour
         yield return new WaitForSeconds(1f);
         transform.position = new Vector3(transform.position.x, batplaceholder.y, transform.position.z);
         dashstart = false;
+    }
+
+    IEnumerator idleing()
+    {
+        idletime = false;
+        self.velocity = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
+        spriteflip();
+        if (sprite == 1)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = batA;
+        }
+
+        if (sprite == 2)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = batB;
+        }
+        yield return new WaitForSeconds(.1f);
+        idletime = true;
     }
 }

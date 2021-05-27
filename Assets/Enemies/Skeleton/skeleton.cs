@@ -8,7 +8,7 @@ public class skeleton : MonoBehaviour
     Rigidbody2D self;
     int count, countmax;
     int direc, direcstore;
-    bool swinging;
+    bool swinging, walking;
     Vector3 swordpos;
     // Start is called before the first frame update
     void Start()
@@ -24,38 +24,9 @@ public class skeleton : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if(swinging == false)
+        if(swinging == false&&walking==false)
         {
-            count += 1;
-            if (count > countmax && direc == 1)
-            {
-                self.velocity = new Vector2(5f, 0f);
-                count = 0;
-                direcstore = direc;
-                direc = 0;
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
-            if (count > countmax && direc == 2)
-            {
-                self.velocity = new Vector2(-5f, 0f);
-                count = 0;
-                direcstore = direc;
-                direc = 0;
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            if (count > 500 && direc == 0)
-            {
-                self.velocity = new Vector2(0f, 0f);
-                count = 0;
-                if (direcstore == 1)
-                {
-                    direc = 2;
-                }
-                else
-                {
-                    direc = 1;
-                }
-            }
+            StartCoroutine(patrol());
         }
         
     }
@@ -101,6 +72,28 @@ public class skeleton : MonoBehaviour
         swinging = false;
     }
 
+    IEnumerator patrol()
+    {
+        walking = true;
+        if (direc == 1)
+        {
+            self.velocity = new Vector2(5f, 0);
+            count = 0;
+            direc = 2;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else
+        {
+            self.velocity = new Vector2(-5f, 0);
+            count = 0;
+            direc = 1;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        yield return new WaitForSeconds(2f);
+        self.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(1f);
+        walking = false;
+    }
     void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "Player" && swinging == false)

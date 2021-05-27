@@ -12,7 +12,7 @@ public class goblin : MonoBehaviour
     int direction, count;
     int modifier;
     float angle;
-    bool throwing;
+    bool throwing, walking;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,35 +28,19 @@ public class goblin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (throwing == false)
+        if (throwing == false && walking == false)
         {
-            if (count > 300 && direction == 1)
-            {
-                self.velocity = new Vector2(5f, 0);
-                count = 0;
-                direction = 2;
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-            }
-            if (count > 300 && direction == 2)
-            {
-                self.velocity = new Vector2(-5f, 0);
-                count = 0;
-                direction = 1;
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-            }
+            StartCoroutine(patrol());   
         }
-        count += 1;
+        
     }
     
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && throwing == false)
         {
-            if (throwing == false)
-            {
-                throwing = true;
-                StartCoroutine(throwrock());
-            }
+            throwing = true;
+            StartCoroutine(throwrock());
         }
     }
     
@@ -89,11 +73,34 @@ public class goblin : MonoBehaviour
             modifier = 2;
         }
         rockphys.velocity = new Vector2(Mathf.Cos(angle) * 20, Mathf.Sin(angle) * 20 + modifier);
-        rockphys.AddForce(new Vector2(0, -5f));
         yield return new WaitForSeconds(1f);
+        rockphys.velocity = new Vector2(0f,0f);
         this.gameObject.GetComponent<SpriteRenderer>().sprite = throwA;
         rock.transform.position = rockpos1;
         throwing = false;
     }
     
+    IEnumerator patrol()
+    {
+        walking = true;
+        //rock.transform.position = new Vector3(transform.position.x + .755f, transform.position.y + .048f, transform.position.z);
+        if (direction == 1)
+        {
+            self.velocity = new Vector2(5f, 0);
+            count = 0;
+            direction = 2;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else
+        {
+            self.velocity = new Vector2(-5f, 0);
+            count = 0;
+            direction = 1;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        yield return new WaitForSeconds(2f);
+        self.velocity = new Vector2(0, 0);
+        yield return new WaitForSeconds(1f);
+        walking = false;
+    }
 }
